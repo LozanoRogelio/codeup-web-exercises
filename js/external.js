@@ -53,10 +53,6 @@ alert("It is " + (capacityInClass && timeInSchedule) + " that you can attend thi
 
 
 
-// let enrollment = (full, conflict) => full === true && conflict === true ? console.log("Registered") : console.log("Error: conflict");
-// enrollment(true, true);
-
-
 
 // A product offer can be applied only if a person buys more than 2 items, and the offer has not expired. Premium members do not need to buy a specific amount of products.
 
