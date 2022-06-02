@@ -84,6 +84,11 @@ console.log(random)
  */
 
 function calculateTip(a, b) {
+    let billWithoutTip = prompt("How much is your bill?")
+    let tipPercent = prompt("What tip percentage would you like to add you your bill?")
+
+   alert("Your total bill is $" + ((billWithoutTip * (tipPercent*.01)) + parseFloat(billWithoutTip) + ", thank you!"))
+
 
     return(a*b)
 }
@@ -110,3 +115,10 @@ calculateTip("a, b");
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
+function applyDiscount(price, discountPercentage) {
+    return (price - (price * (discountPercentage*.01)))
+
+}
+
+applyDiscount();
