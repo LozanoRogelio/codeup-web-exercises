@@ -22,18 +22,37 @@
  * console.logging the function's return value
  */
 
+// function analyzeColor(colorName) {
+//     if (colorName === "blue") {
+//          return ("blue is the color of the sky");
+//     } else if (colorName === "red") {
+//         return "red like a red solo cup";
+//     } else if (colorName === "cyan") {
+//         return "Don't know anything about the color cyan";
+//     } else {
+//         return "What a wonderful color!";
+//     }
+//
+//
+// }
+// console.log(analyzeColor("colorName"))
+
+
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
-/**
+let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+let randomColor = colors[Math.floor(Math.random() * colors.length)];/**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+
+// (console.log(randomColor))
+// analyzeColor(randomColor)
 
 /**
  * TODO:
@@ -46,6 +65,28 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+let analyzeColor = prompt("What is your favorite color?")
+    switch(analyzeColor) {
+        case "blue":
+            alert("The ocean is blue!");
+            break;
+        case "red":
+            alert("Red like the red sea!");
+            break;
+        case "cyan":
+            alert("Cyan, I have no clue what that is!");
+            break;
+        default:
+            alert(analyzeColor + " is a wonderful color!");
+            break;
+
+    }
+
+
+
+
+
 
 /* ########################################################################## */
 
