@@ -168,3 +168,38 @@ calculateTotal();
  * HINT: The way we prompt for a value could be improved
  */
 
+function isEven(num) {
+    if (num % 2 == 0) {
+        return "even";
+    } else {
+        return "odd";
+    }
+}
+isEven();
+
+function isPositive(number) {
+    if (number > 0) {
+        return "positive";
+    } else if (number === 0) {
+        return "negative";
+    } else if (number < 0) {
+        return "negative"
+    }
+}
+isPositive();
+
+
+
+let userInput = confirm ("Hi!! Would would you like to enter a number?")
+
+if (userInput) {
+    let numChosen = prompt("Which number would you like to enter?")
+    alert("You chose number " + numChosen + " which is " + (isEven(numChosen)) + "!")
+    alert(numChosen + " plus 100 is " + (parseFloat(numChosen) + 100))
+    alert(numChosen + " is a " + (isPositive(numChosen)) + "!!")
+
+} else {
+    alert("Okay no worries!")
+}
+
+
