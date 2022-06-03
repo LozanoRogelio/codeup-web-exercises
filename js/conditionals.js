@@ -66,22 +66,22 @@ let randomColor = colors[Math.floor(Math.random() * colors.length)];/**
  * function to show it to the user.
  */
 
-let analyzeColor = prompt("What is your favorite color?")
-    switch(analyzeColor) {
-        case "blue":
-            alert("The ocean is blue!");
-            break;
-        case "red":
-            alert("Red like the red sea!");
-            break;
-        case "cyan":
-            alert("Cyan, I have no clue what that is!");
-            break;
-        default:
-            alert(analyzeColor + " is a wonderful color!");
-            break;
-
-    }
+// let analyzeColor = prompt("What is your favorite color?")
+//     switch(analyzeColor) {
+//         case "blue":
+//             alert("The ocean is blue!");
+//             break;
+//         case "red":
+//             alert("Red like the red sea!");
+//             break;
+//         case "cyan":
+//             alert("Cyan, I have no clue what that is!");
+//             break;
+//         default:
+//             alert(analyzeColor + " is a wonderful color!");
+//             break;
+//
+//     }
 
 
 
@@ -110,6 +110,26 @@ let analyzeColor = prompt("What is your favorite color?")
  * return value.
  */
 
+function calculateTotal(luckyNumber, totalAmount) {
+    if (luckyNumber === 0) {
+        return "Sorry! You will not receive a discount!";
+    } else if (luckyNumber === 1) {
+        return (totalAmount - (totalAmount * .10));
+    } else if (luckyNumber === 2) {
+        return (totalAmount - (totalAmount * .25));
+    } else if (luckyNumber === 3) {
+        return (totalAmount - (totalAmount * .35));
+    } else if (luckyNumber === 4) {
+        return (totalAmount - (totalAmount * .50));
+    } else if (luckyNumber === 5) {
+        return "Congrats you get everything for FREE!!";
+    }
+}
+
+calculateTotal();
+
+
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -119,7 +139,15 @@ let analyzeColor = prompt("What is your favorite color?")
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+// let luckyNumber = Math.floor(Math.random() * 6);
+//
+// let originalPrice = prompt ("What was the total bill for your purchase?", )
+// alert ("Your lucky number is " + luckyNumber)
+// alert ("Your original price was $" + originalPrice)
+// alert("Your prize with the discount is now $" + (calculateTotal(luckyNumber, originalPrice)) + " !!" )
+
+
+
 
 /**
  * TODO:
@@ -139,3 +167,4 @@ let analyzeColor = prompt("What is your favorite color?")
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
