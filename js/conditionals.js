@@ -23,6 +23,7 @@
  */
 
 // function analyzeColor(colorName) {
+//     colorName = colorName.toLowerCase();
 //     if (colorName === "blue") {
 //          return ("blue is the color of the sky");
 //     } else if (colorName === "red") {
