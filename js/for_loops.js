@@ -1,13 +1,13 @@
-"use strict";
-
-// Question 2
-function showMultiplicationTable(num) {
-    for (let n = 0; n <= 10; ++n) {
-        let result = num * n
-        console.log("For this multiplication table you got " + num + " * " + n + " = " + result)
-
-    }
-}
+// "use strict";
+//
+// // Question 2
+// function showMultiplicationTable(num) {
+//     for (let n = 0; n <= 10; ++n) {
+//         let result = num * n
+//         console.log("For this multiplication table you got " + num + " * " + n + " = " + result)
+//
+//     }
+// }
 
 // Question 3
 
