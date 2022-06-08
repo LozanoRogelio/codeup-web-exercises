@@ -11,11 +11,16 @@
 
 // Question 3
 
-// function getRandomNumber(number) {
-//     for (let a = 0; a <= 10; ++a) {
-//         console.log(randomNumber + " is " + (randomNumber % 2 === 0))
-//     }
+
+//     for (let a = 0; a < 10; a++) {
 //     let randomNumber = Math.floor(Math.random() * (200 -20 + 1)) + 20;
+//
+//     if (randomNumber % 2 === 0) {
+//         console.log(randomNumber + "! Nice , that is an even number.")
+//     } else{
+//         console.log(randomNumber + "! Pretty cool odd number.")
+//     }
+//
 //
 // }
 
