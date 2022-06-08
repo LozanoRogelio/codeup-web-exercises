@@ -1,5 +1,5 @@
 
-(function(){
+(function() {
     "use strict";
 
     /**
@@ -63,5 +63,32 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
+    // let locations = [1, 2, 3, 4, 5]
+    //
+    // let first = locations => locations[0];
+    // console.log(first(locations))
+    //
+    //
+    // let second = locations => locations[1];
+    // console.log(second(locations))
+    //
+    // let last = locations => locations[locations.length -1];
+    // console.log(last(locations))
+
+// Example 2 - Getting specific elements in array
+//     let colors = ['red', 'yellow', 'green', 'blue', 'silver']
+//
+//
+//     let first = colors => colors[0];
+//     console.log(first(colors))
+//
+//
+//     let second = colors => colors[1];
+//     console.log(second(colors))
+//
+//     let last = colors => colors[colors.length -1];
+//     console.log(last(colors))
+
+
 
 })();
