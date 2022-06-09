@@ -12,16 +12,16 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
-    let names = {};
-    console.log(typeof names);
-
-    names.firstName = "Rick"
-    names.lastName = "Sanchez"
-
-
-
-    console.log(names.firstName)
-    console.log(names.lastName)
+    // let names = {};
+    // console.log(typeof names);
+    //
+    // names.firstName = "Rick"
+    // names.lastName = "Sanchez"
+    //
+    //
+    //
+    // console.log(names.firstName)
+    // console.log(names.lastName)
 
 
     /**
@@ -33,9 +33,9 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-    names.sayHello = ("Hello from " + names.firstName + " " + names.lastName + "!")
-
-    console.log(names.sayHello)
+    // names.sayHello = ("Hello from " + names.firstName + " " + names.lastName + "!")
+    //
+    // console.log(names.sayHello)
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -50,12 +50,25 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+    // function mathDiscount (discount) {
+    //     return (shoppers.amount * .12);
+    // }
+    // mathDiscount();
 
     let shoppers = [
         {name: 'Cameron', amount: 180},
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
+
     ];
+    console.log(shoppers)
+
+    if (shoppers.amount[0] > 200) {
+        return "Hey " + shoppers.name[0] + " your total amount was " + shoppers.amount[0] + ", congrats you get a discount of " + (shoppers.amount[0] * .12) + " , your price after the discount is " + shoppers.amount[0] - (shoppers.amount[0] * .12);
+    } else {
+        return "Sorry you do not qualify for a discount since your total of " + shoppers.amount[0] + " is below 200."
+    }
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
