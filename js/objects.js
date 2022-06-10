@@ -63,11 +63,14 @@
     ];
     console.log(shoppers)
 
-    if (shoppers.amount[0] > 200) {
-        return "Hey " + shoppers.name[0] + " your total amount was " + shoppers.amount[0] + ", congrats you get a discount of " + (shoppers.amount[0] * .12) + " , your price after the discount is " + shoppers.amount[0] - (shoppers.amount[0] * .12);
-    } else {
-        return "Sorry you do not qualify for a discount since your total of " + shoppers.amount[0] + " is below 200."
-    }
+        shoppers.forEach(function (shopper) {
+            if (shopper.amount > 200) {
+                let discountedTotal = (shopper.amount * .88)
+                console.log("Hey " + shopper.name + " your total amount was $" + shopper.amount + ", congrats you get a discount of $" + (shopper.amount * .12) + " , your price after the discount is $" + discountedTotal);
+            } else {
+                console.log("Sorry " + shopper.name + " you do not qualify for a discount since your total of $" + shopper.amount + " is below $200.");
+            }
+        })
 
 
     /** TODO:
@@ -82,6 +85,53 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+        let books = []
+
+    books[0] = {title: "The Last Flight",
+                author: {
+                    firstName: "Julie",
+                    lastName: "Clark"
+                }
+    }
+
+    books[1] = {title: "Verity",
+                author: {
+                    firstName: "Colleen",
+                    lastName: "Hoover"
+                }
+    }
+
+    books[2] = {title: "The Maid A Novel",
+                author: {
+                    firstName: "Nita",
+                    lastName: "Prose"
+                }
+    }
+
+    books[3] = {title: "The Devil May Dance",
+                author: {
+                    firstName: "Jake",
+                    lastName: "Tapper"
+                }
+    }
+
+    books[4] = {title: "Watching You",
+                author: {
+                    firstName: "Lisa",
+                    lastName: "Jewell"
+                }
+    }
+
+    console.log(books)
+    console.log(books[1].author.lastName)
+
+
+
+
+
+
+
 
     /**
      * TODO:
@@ -107,6 +157,17 @@
      *      ---
      *      ...
      */
+
+
+    books.forEach(function (book, index)  {
+        console.log(
+            "Book # " + (index + 1) + "\n" +
+            "Title: " + book.title + "\n" +
+            "Author: " + book.author.firstName + book.author.lastName +
+            "\n" + "---"
+
+        );
+    });
 
     /**
      * Bonus:
