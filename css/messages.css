@@ -1,0 +1,46 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+#bg-info {
+    background: rgba(0, 0, 255, 0.3);
+    margin: .5em 8em;
+    color: black;
+    border-radius: 10px 10px 10px 10px;
+    border-width: 10px;
+    border-color: #111111;
+}
+
+#text-info {
+    background: rgba(0, 255, 0, 0.3);
+    margin: .5em 8em;
+    border-radius: 10px 10px 10px 10px;
+    border-width: 10px;
+    border-color: #111111;
+
+}
+
+#bg-success {
+    background: rgba(255, 255, 0, 0.3);
+    margin: .5em 8em;
+    border-radius: 10px 10px 10px 10px;
+    border-width: 10px;
+    border-color: #111111;
+
+
+}
+
+#text-success {
+    background: rgba(255, 0, 0, 0.3);
+    margin: .5em 8em;
+    border-radius: 10px 10px 10px 10px;
+    border-width: 10px;
+    border-color: #111111;
+
+}
+
+
