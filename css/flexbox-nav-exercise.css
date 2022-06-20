@@ -1,0 +1,25 @@
+html {
+    box-sizing: border-box;
+}
+
+a:hover {
+    color: blue;
+}
+
+a {
+    display: inline-block;
+}
+
+.top-nav {
+    display: flex;
+    margin: auto;
+    background: lightgray;
+    justify-content: space-between;
+}
+
+h1 {
+    margin: auto;
+}
+
+
+
