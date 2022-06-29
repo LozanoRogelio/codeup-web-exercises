@@ -17,11 +17,18 @@
             // TODO: complete this method.
 
             // If doRounding is true, round the result to the nearest integer.
+            // my way of solving
             if (doRounding) {
                 console.log(Math.round(this.getArea()));
             } else {
                 return doRounding;
             }
+            // DOC ROB way
+            // let area = this.getArea();
+            //
+            // if (doRounding === true) {
+            //     area = Math.round(area);
+            // }
 
 
             // Otherwise, output the complete value
