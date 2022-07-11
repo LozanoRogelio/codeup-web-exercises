@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code</title>
+</head>
+<body>
+  <h1>Konami Code</h1>
+
+
+
+
+  <script>
+    "use strict";
+
+    document.addEventListener("keyup", function(event) {
+      console.log(event.key);
+    });
+
+
+// My way of solving
+    let konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'a', 'b', 'Enter'];
+
+    let keyCount = 0;
+
+    let keyHandler = function(event) {
+        if (konamiPattern.indexOf(event.key) < 0 || event.key !== konamiPattern[keyCount]) {
+            keyCount = 0;
+            return;
+        }
+
+        keyCount++
+        if (konamiPattern.length === keyCount) {
+            keyCount = 0;
+            alert('You have added 30 lives!');
+            let bodyColor = document.querySelector('body');
+            bodyColor.style.backgroundImage = "url(https://media.phillyvoice.com/media/images/thumbnail_image001.2e16d0ba.fill-735x490.jpg)"
+            let h1Color = document.querySelector('h1')
+            h1Color.style.color = 'white'
+
+                // let audio = new Audio('audio/drake.mp4');
+                // audio.play();
+        }
+    };
+
+        document.addEventListener("keyup", keyHandler, false);
+
+// DOCROB way
+//     let keysPressed = []
+//     document.addEventListener('keyup', function(event) {
+//         keysPressed.push(event.key);
+//         if(enteredKonamiCode() === true) {
+//             console.log("You would get 30!");
+//         }
+//     });
+//
+//     function enteredKonamiCode() {
+//         let konamiCode = ""
+//         if(keysPressed.toString().includes(konamiCode) === true) {
+//             keysPressed.length = 0;
+//             return true;
+//         }
+//         return false;
+//     }
+
+
+
+
+  </script>
+
+
+
+</body>
+</html>
