@@ -5,32 +5,66 @@
     <title>Ajax Blog</title>
 
     <style>
-
+        body {
+            /*background-color: saddlebrown;*/
+            font-family: sans-serif;
+        }
+        .my-blog-post {
+            border: 5px solid dodgerblue;
+            border-radius: 12px;
+            padding: 0 15px;
+            margin-bottom: 10px;
+            background-color: #989794;
+            color: white;
+        }
     </style>
 </head>
 <body>
 <h1>My Blog</h1>
 
-<div id="posts">
+<div id="my-posts" class="my-blog-post">
 
 </div>
 
-<script>
 
-    const blog = await fetch("data/blog.json")
-        .then(async function (res) {
-            if (res.status !== 200) {
-                console.log("cannot read tools file");
-                return "";
-            } else
-                return await res.json();
+
+
+
+<script>
+    ( function() {
+        "use strict";
+        document.addEventListener("DOMContentLoaded", async function () {
+
+    const blogPosts = await fetch("data/blog.json")
+        .then(async function (response) {
+            if (response.status !== 200) {
+                console.log("ERROR!!");
+                return [];
+            }
+            return response.json();
+        }).then(function(data) {
+            return data;
         });
 
-    for (let i = 0; i < blog.length; i++) {
-        console.log(blog[i]);
+    const myPosts = document.querySelector('#my-posts');
+    for (let i = 0; i < blogPosts.length; i++) {
+        const newPost =
+            `<div>
+                <p>${blogPosts[i].title}</p>
+                <p>${blogPosts[i].content}</p>
+                <p>${blogPosts[i].categories.join(", ")}</p>
+                <p>${blogPosts[i].date}</p>
+            </div>`
+        ;
+        myPosts.innerHTML += newPost;
+    }
+    });
 
+    })();
 
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </body>
 </html>
