@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    #map {
+    /* the width and height may be set to any size */
+    width: 95%;
+    height: 400px;
+    display: flex;
+    border-radius: 20px;
+    border: #a6a1a1 15px solid;
+    }
+
+    img {
+        width: 50px;
+        height: auto;
+    }
+
+    .searchDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    #weatherContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-between;
+        width: 100%;
+        max-width: 75%;
+    }
+
+    #iconsContainer {
+        border-radius: 20px;
+        border: #111111 solid;
+        justify-content: space-around;
+        width: 100%;
+
+    }
+
+    .col-md-2 {
+        border-radius: 20px;
+        border: #111111 solid;
+
+    }
+
+
+</style>
+<body>
+
+
+<!--Search Container-->
+<div class="searchDiv">
+    <h1>5-Day Weather Forecast</h1>
+    <p id="inputContainer">City: <input type="text" id="cityInput"></p>
+    <button onclick="GetCity()" id="searchBtn">Search</button>
+    <h2 id="cityName">--San Antonio--</h2>
+</div>
+<br>
+<!--Weather Container-->
+<div class="container" id="weatherContainer">
+    <div class="row" id="iconsContainer">
+        <div class="col-md-2">
+            <p class="weather" id="day1">Day 1</p>
+            <div class="image"><img src="img/apple-weather-logo.webp" class="imgClass" id="img1" alt=""></div>
+            <p class="temperature" id="day1Temp">Temp..</p>
+        </div>
+        <div class="col-md-2">
+            <p class="weather" id="day2">Day 2</p>
+            <div class="image"><img src="img/apple-weather-logo.webp" class="imgClass" id="img2" alt=""></div>
+            <p class="temperature" id="day2Temp">Temp..</p>
+        </div>
+        <div class="col-md-2">
+            <p class="weather" id="day3">Day 3</p>
+            <div class="image"><img src="img/apple-weather-logo.webp" class="imgClass" id="img3" alt=""></div>
+            <p class="temperature" id="day3Temp">Temp..</p>
+        </div>
+        <div class="col-md-2">
+            <p class="weather" id="day4">Day 4</p>
+            <div class="image"><img src="img/apple-weather-logo.webp" class="imgClass" id="img4" alt=""></div>
+            <p class="temperature" id="day4Temp">Temp..</p>
+        </div>
+        <div class="col-md-2">
+            <p class="weather" id="day5">Day 5</p>
+            <div class="image"><img src="img/apple-weather-logo.webp" class="imgClass" id="img5" alt=""></div>
+            <p class="temperature" id="day5Temp">Temp..</p>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+
+
+<div id='map'></div>
+
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<!-- Mapbox Geocoder Util Methods -->
+<script src="mapbox-geocoder-utils.js"></script>
+
+<!--Keys-->
+<script src="js/keys.js"></script>
+
+<script>
+"use strict";
+(function() {
+
+    // Open Weather
+    let queryParams = new URLSearchParams({
+        APPID: OPENWEATHER_API_KEY,
+        lat:    29.423017,
+        lon:   -98.48527,
+        // q: "San Antonio, US",
+        units: "imperial"
+    });
+    const url = "https://api.openweathermap.org/data/2.5/onecall?" + queryParams;
+    console.log(url);
+    fetch(url)
+        .then(function(response) {
+            return response.json();
+        }).then (function (data) {
+            console.log(data);
+    });
+
+    function GetCity() {
+        const newName = document.getElementById('cityInput');
+        const cityName = document.getElementById("cityName");
+            cityName.innerHTML = "--" + newName.value + "--"
+
+    }
+
+
+
+
+
+
+// Weather MAP
+    let accessToken = MAPBOX_API_KEY;
+
+    mapboxgl.accessToken = accessToken;
+
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    });
+
+})();
+
+</script>
+
+
+
+</body>
+</html>

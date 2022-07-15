@@ -39,6 +39,7 @@
 </head>
 <body>
 
+
 <h1>Top 3 Food Places</h1>
 
 <!-- The HTML element that serves as the Mapbox container -->
@@ -65,7 +66,7 @@
 <script>
 
 
-  let accessToken = MAPBOX_API_KEY;
+  // let accessToken = MAPBOX_API_KEY;
 
   mapboxgl.accessToken = accessToken;
 
@@ -97,7 +98,6 @@
 
 
 
-
   let restaurantInfo = {
     address: "16505 Blanco Rd, San Antonio, TX 78232",
     popupHTML: "<h2>EL BUCANERO</h2><p><strong>COME GRAB A DRINK!</strong></p><p>Best seafood in the city!</p><img id='bucImg' src='img/bucanero.jpeg'>"
@@ -116,6 +116,8 @@
   }
 
   placeMarkerAndPopup(restaurantInfo, accessToken, map);
+
+
 
 </script>
 </body>
