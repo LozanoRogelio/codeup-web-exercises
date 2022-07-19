@@ -57,13 +57,14 @@
 
     }
 
+
     #iconsContainer {
         justify-content: space-around;
         width: 100%;
 
     }
 
-    .col-md-2 {
+    .col-md-2{
         color: white;
         border-radius: 20px;
         border: rgba(69, 72, 69, 0.3) solid;
@@ -176,6 +177,10 @@
 
 <pre id="coordinates" class="coordinates"></pre>
 <div id='map'></div>
+
+<footer style="text-align: center">
+<p>Copyright&copy; 2022</p>
+</footer>
 
 
 <!--Keys-->
@@ -312,7 +317,7 @@ function getCity(lngLat) {
         console.log(lngLat);
         getCity(lngLat)
         coordinates.style.display = 'block';
-        coordinates.innerHTML = `<br>Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+        // coordinates.innerHTML = `<br>Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
         map.setCenter(lngLat);
         getCity(lngLat);
 
