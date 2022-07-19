@@ -64,7 +64,7 @@
     <h1>5-Day Weather Forecast</h1>
     <p id="inputContainer">City: <input type="text" id="cityInput"></p>
     <button type="button" id="searchBtn">Search</button>
-    <h2 id="cityName">----</h2>
+    <h2 id="cityName">--San Antonio--</h2>
 </div>
 <br>
 <!--Weather Container-->
@@ -115,7 +115,7 @@
 <br>
 <hr>
 
-
+<pre id="coordinates" class="coordinates"></pre>
 <div id='map'></div>
 
 
@@ -126,16 +126,16 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
 <!-- Mapbox Geocoder Util Methods -->
-<script src="mapbox-geocoder-utils.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 
 
 <script>
 "use strict";
-(function () {
-
+(async function () {
+let newMarker;
     // Open Weather
 
-
+function getCity() {
     let queryParams = new URLSearchParams({
         APPID: OPENWEATHER_API_KEY,
         lat: 29.423017,
@@ -159,11 +159,13 @@
             document.getElementById("day" + (i + 1) + "Temp").innerHTML = "Min Temp " + data.daily[i].temp.min.toFixed(1) + "°";
             // Max temp
             document.getElementById("day" + (i + 1) + "Max").innerHTML = "Max Temp " + data.daily[i].temp.max.toFixed(1) + "°";
-            document.getElementById("day"+(i+1)+"Description").innerHTML = "Description: " + `${data.daily[i].weather[0].description}`
+            document.getElementById("day" + (i + 1) + "Description").innerHTML = "Description: " + `${data.daily[i].weather[0].description}`
         }
 
         console.log(data);
     })
+}
+
 
 
 
@@ -171,14 +173,19 @@
 
 
     function location() {
-        const newName = document.getElementById('cityInput');
-        const cityName = document.getElementById("cityName");
+        let newName = document.getElementById('cityInput');
+        let cityName = document.getElementById("cityName");
         cityName.innerHTML = "--" + newName.value + "--"
     }
 
-    const search = document.getElementById("searchBtn")
-    search.addEventListener("click", location);
 
+    const search = document.getElementById("searchBtn")
+    search.addEventListener("click", location, getCity)
+
+
+    document.getElementById("cityInput").defaultValue = "San Antonio";
+    location();
+    getCity();
 
 
 
@@ -190,14 +197,63 @@
 
     mapboxgl.accessToken = accessToken;
 
-    let map = new mapboxgl.Map({
+    const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
         center: [-98.4916, 29.4252]
+
     });
 
+
+
+    // function getLogLatFromAddress (address, token = MAPBOX_API_KEY) {
+    //     let baseUrl = 'https://api.mapbox.com';
+    //     let endPoint = '/geocoding/v5/mapbox.places/';
+    // }
+
+    const searchedMarker = [];
+
+    let searchButton = document.getElementById(`searchBtn`);
+    let searchInput = document.getElementById('cityInput');
+    let cityDisplayed = document.getElementById("cityName");
+    searchButton.addEventListener("click", async function(event) {
+        console.log(searchInput)
+        let searchCoords = (await getLocationInfoFromAddress(searchInput.value));
+        map.setCenter(searchCoords);
+        newMarker.remove()
+        newMarker = new mapboxgl.Marker({draggable: true});
+        newMarker.setLngLat(searchCoords);
+        newMarker.addTo(map);
+        onDragEnd();
+        newMarker.on('dragend', onDragEnd);
+        searchedMarker.push(newMarker);
+    })
+
+    const coordinates = document.getElementById('coordinates');
+    newMarker = new mapboxgl.Marker({
+        draggable:true
+    })
+    newMarker.setLngLat([-98.489765, 29.426742])
+    newMarker.addTo(map);
+
+    function onDragEnd() {
+        const lngLat = newMarker.getLngLat();
+        console.log(lngLat);
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+        map.setCenter(lngLat);
+        getCity();
+
+    }
+    newMarker.on('dragend', onDragEnd);
+
+
+
+
+
 })();
+
 
 </script>
 
