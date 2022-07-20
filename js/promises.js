@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }).then(events => {
                     for(let event of events) {
                         if (event.type === 'PushEvent') {
-                            return event.payload.commits;
+                            return event.created_at;
                         }
                     }
                 });

@@ -4,4 +4,4 @@ const MAPBOX_API_KEY = "pk.eyJ1IjoibWFkbWFyY29zIiwiYSI6ImNsNWw2OHUyaDBncW8zYnFpZ
 
 const OPENWEATHER_API_KEY = "6335e8e5cb64a438c71340d02a48148f"
 
-const GITHUB_API_KEY = "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"
+const GITHUB_API_KEY = "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"
