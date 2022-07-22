@@ -45,19 +45,65 @@ let quotesArray = [
 // HTML function
 export default function QuotesView(props) {
     return `
+        <h1>Best Quotes</h1>
         <div id="my-quotes">
+        
         <!--    <div class="card">-->
                 
         <!--    </div>-->
         </div>
+        <div id="new-quotes">
+        
+        </div>
+        
+        <label for="new-quote-input">Add New Quote</label><br>
+        <input type="new-quote" id="new-quote-input">
+        <button type="button" id="new-quote-btn">Add</button>
 `
+
+}
+
+let currentQuote = 0
+
+function showQuotes() {
+    let quotesDisplayed = document.querySelector("#my-quotes");
+    for (let i = 0; i < quotesArray.length; i++) {
+        quotesDisplayed.innerHTML +=
+            `
+    <div class="card quote-displayed" style="width: 50rem">
+    <div class="card-body">
+        <p>${quotesArray[currentQuote].quote}</p><h5>${quotesArray[currentQuote].author}</h5> 
+    </div>  
+    </div>
+    `;
+        currentQuote++
+
+    }
+}
+
+function addQuote() {
+    let newQuoteInput = document.querySelector("#new-quote-input");
+    let newQuoteLocation = document.querySelector("#new-quotes")
+    newQuoteLocation.innerHTML = `
+       <div class="card quote-displayed" style="width: 18rem">
+    <div class="card-body">
+        <p>newQuoteInput.value</p> 
+    </div>  
+    </div>
+    
+    `
+
+
+        let pushToAddQuote = document.querySelector("#new-quote-btn")
+        pushToAddQuote.addEventListener("click", function (event) {
+        quotesArray.push(newQuoteInput.value)
+        })
+
+
 }
 
 // JS Function
 export function QuotesEvents() {
-    let quotesDisplayed = document.querySelector("#my-quotes");
-    quotesDisplayed.innerHTML
-
-
-
+    document.querySelector("body")
+    document.addEventListener("click", showQuotes)
 }
