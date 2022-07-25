@@ -41,69 +41,50 @@ let quotesArray = [
         author: "Lucy Liu"
     }
 ]
-
+// let currentQuote = 0
 // HTML function
 export default function QuotesView(props) {
-    return `
+    // quotesArray = props.quotes;
+
+    let html = `
         <h1>Best Quotes</h1>
         <div id="my-quotes">
         
         <!--    <div class="card">-->
-                
+                ${showQuotes(props.quotes)}
         <!--    </div>-->
         </div>
-        <div id="new-quotes">
         
-        </div>
+        <a style="text-align: center" data-link href="/insert-quote">Insert Quote</a>
         
-        <label for="new-quote-input">Add New Quote</label><br>
-        <input type="new-quote" id="new-quote-input">
-        <button type="button" id="new-quote-btn">Add</button>
-`
+`;
+    return html;
 
 }
 
-let currentQuote = 0
 
-function showQuotes() {
-    let quotesDisplayed = document.querySelector("#my-quotes");
+
+ function showQuotes() {
+    let html = "";
     for (let i = 0; i < quotesArray.length; i++) {
-        quotesDisplayed.innerHTML +=
-            `
+        html += `
     <div class="card quote-displayed" style="width: 50rem">
     <div class="card-body">
-        <p>${quotesArray[currentQuote].quote}</p><h5>${quotesArray[currentQuote].author}</h5> 
+        <p>${quotesArray[i].quote}</p>
+        <h5>${quotesArray[i].author}</h5> 
     </div>  
     </div>
     `;
-        currentQuote++
+        // currentQuote++
 
     }
+    return html;
 }
 
-function addQuote() {
-    let newQuoteInput = document.querySelector("#new-quote-input");
-    let newQuoteLocation = document.querySelector("#new-quotes")
-    newQuoteLocation.innerHTML = `
-       <div class="card quote-displayed" style="width: 18rem">
-    <div class="card-body">
-        <p>newQuoteInput.value</p> 
-    </div>  
-    </div>
-    
-    `
-
-
-        let pushToAddQuote = document.querySelector("#new-quote-btn")
-        pushToAddQuote.addEventListener("click", function (event) {
-        quotesArray.push(newQuoteInput.value)
-        })
-
-
-}
 
 // JS Function
 export function QuotesEvents() {
-    document.querySelector("body")
-    document.addEventListener("click", showQuotes)
+    // document.querySelector("body")
+    // document.addEventListener("click", showQuotes)
+    console.log(quotesArray);
 }

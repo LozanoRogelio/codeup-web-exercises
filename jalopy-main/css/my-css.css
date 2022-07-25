@@ -11,3 +11,10 @@ img {
     flex-direction: column;
     max-width: 100%;
 }
+
+.quote-displayed {
+    padding: 0px;
+    background-color: #004953;
+    color: white;
+   margin-bottom: 10px;
+}

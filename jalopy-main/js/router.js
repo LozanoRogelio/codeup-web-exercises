@@ -10,6 +10,8 @@ import UserIndex, {UserEvents} from "./views/User.js";
 import Logout, {LogoutEvents} from "./views/Logout.js";
 import DogFactsView, {DogFactsEvents} from "./views/DogFacts.js";
 import QuotesView, {QuotesEvents} from "./views/Quotes.js";
+import InsertDogFactView, {InsertDogFactEvents} from "./views/AddDogFact.js";
+import InsertNewQuoteView, {InsertNewQuoteEvents} from "./views/AddQuote.js";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -72,19 +74,49 @@ export default function router(URI) {
             uri: location.pathname,
             title: 'Loading...',
         },
+        '/insert-dog-fact': {
+            returnView: InsertDogFactView,
+            state: {},
+            uri: '/insert-dog-fact',
+            title: 'Insert Dog Fact',
+            viewEvent: InsertDogFactEvents
+        },
         '/dogs': {
             returnView: DogFactsView,
-            state: {},
+            state: {
+                dogFacts: {
+                    url: "https://dogfacts.fulgentcorp.com:12250/v1/facts?random=false&limit=10",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': DOG_QUOTE_API_KEY
+                    }
+                }
+            },
             uri: '/dogs',
             title: 'Dog Facts',
             viewEvent: DogFactsEvents
         },
         '/quotes': {
             returnView: QuotesView,
-            state: {},
+            state: {
+                quoteFacts: {
+                    url: "https://quotes.fulgentcorp.com:12250/v1/quotes?random=false&limit=10",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': DOG_QUOTE_API_KEY
+                    }
+                }
+            },
             uri: '/quotes',
             title: 'Quotes',
             viewEvent: QuotesEvents
+        },
+        '/insert-quote': {
+            returnView: InsertNewQuoteView,
+            state: {},
+            uri: '/insert-quote',
+            title: 'Insert Quote',
+            viewEvent: InsertNewQuoteEvents
         },
     };
 
